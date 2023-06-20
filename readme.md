@@ -11,5 +11,5 @@ Max MSP patch and python codebase used for exploring and demonstrating the work 
 
 ## Dependencies
 
+-   [IRCAM Spat~ v.5+](https://forum.ircam.fr/projects/detail/spat)
 -	[kac_maxmsp](https://github.com/lewiswolf/kac_maxmsp)
--   [IRCAM Spat~ v.5](https://forum.ircam.fr/projects/detail/spat)
