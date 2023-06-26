@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 25.0, 88.0, 792.0, 780.0 ],
+		"rect" : [ -1616.0, 115.0, 1214.0, 730.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -2870,8 +2870,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 427.616669654846191, 698.992481470108032, 80.0, 22.0 ],
-					"text" : "loadmess 1.1"
+					"patching_rect" : [ 427.616669654846191, 698.992481470108032, 73.0, 22.0 ],
+					"text" : "loadmess 1."
 				}
 
 			}
@@ -2893,8 +2893,8 @@
 					"htricolor" : [ 0.356862745098039, 0.513725490196078, 0.862745098039216, 1.0 ],
 					"id" : "obj-153",
 					"maxclass" : "flonum",
-					"maximum" : 1.75,
-					"minimum" : 1.0,
+					"maximum" : 1.0,
+					"minimum" : 0.0001,
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
@@ -10742,6 +10742,10 @@
 			}
 , 			{
 				"name" : "spat5.meter~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "spat5.pan~.mxo",
 				"type" : "iLaX"
 			}
 , 			{
