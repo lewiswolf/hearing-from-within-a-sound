@@ -1,10 +1,10 @@
 {
-	"name" : "maxmsp",
+	"name" : "hearing-from-within-a-sound",
 	"version" : 1,
 	"creationdate" : 3767417795,
-	"modificationdate" : 3769316992,
+	"modificationdate" : 3775113337,
 	"viewrect" : [ -1670.0, -81.0, 1863.0, 931.0 ],
-	"autoorganize" : 1,
+	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
 	"autolocalize" : 0,
@@ -39,16 +39,6 @@
 		}
 ,
 		"media" : 		{
-			"julia-set-instagram.png" : 			{
-				"kind" : "imagefile",
-				"local" : 1
-			}
-,
-			"julia-set-linktree.png" : 			{
-				"kind" : "imagefile",
-				"local" : 1
-			}
-,
 			"josef 0.wav" : 			{
 				"kind" : "audiofile",
 				"local" : 1
@@ -71,6 +61,16 @@
 ,
 			"josef 4.wav" : 			{
 				"kind" : "audiofile",
+				"local" : 1
+			}
+,
+			"julia-set-instagram.png" : 			{
+				"kind" : "imagefile",
+				"local" : 1
+			}
+,
+			"julia-set-linktree.png" : 			{
+				"kind" : "imagefile",
 				"local" : 1
 			}
 ,
@@ -122,6 +122,11 @@
 				"local" : 1
 			}
 ,
+			"spat5.pan~.mxo" : 			{
+				"kind" : "object",
+				"local" : 1
+			}
+,
 			"spat5.viewer.embedded.mxo" : 			{
 				"kind" : "object",
 				"local" : 1
@@ -148,11 +153,6 @@
 			}
 ,
 			"kac.squareToCircle.mxo" : 			{
-				"kind" : "object",
-				"local" : 1
-			}
-,
-			"spat5.pan~.mxo" : 			{
 				"kind" : "object",
 				"local" : 1
 			}
