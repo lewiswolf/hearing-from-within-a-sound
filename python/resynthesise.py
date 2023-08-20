@@ -141,7 +141,7 @@ def get_unique_j1(jtfs: TimeFrequencyScattering1D, Sx: torch.Tensor) -> list[lis
 
 
 def run_resynth(
-	audio_dir: str = '/Users/lewiswolstanholme/Desktop/hearing-from-within-a-sound/python/test/audio',
+	audio_dir: str = '',
 	input_len: int | None = None,
 	j1: list[int] = [],
 	learning_rate: float = 1.,
