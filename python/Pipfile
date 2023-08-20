@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fire = "*"
+kymatio = {editable = true, path = "./kymatio"}
+numpy = "*"
+soundfile = "*"
+torch = "*"
+
+[dev-packages]
+flake8 = "*"
+flake8-commas = "*"
+flake8-quotes = "*"
+mypy = "*"
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+start = "python resynthesise.py"
+test = "sh ./test/test.sh"

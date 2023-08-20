@@ -1,2 +1,13 @@
-/externals
+# Apple
 .DS_Store
+
+# Max MSP
+/externals
+/other
+
+# python
+*.egg-info
+.mypy_cache
+Pipfile.lock
+reqlib-metadata
+/python/out
