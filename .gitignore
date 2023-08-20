@@ -10,5 +10,5 @@
 .mypy_cache
 Pipfile.lock
 reqlib-metadata
-/python/build
+/python/**/build
 /python/out
