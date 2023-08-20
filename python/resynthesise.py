@@ -48,12 +48,13 @@ def resynthesise(
 		err.backward()
 
 		# gradient descent
-		delta_y = noise.grad or 1.0
+		delta_y = noise.grad
 		if i % 1 == 0:
 			print(f'{i}/{n_iter}: {err.cpu().detach().numpy():.4f}')
-		with torch.no_grad():
-			noise_new = noise - curr_lr * delta_y
-		noise_new.requires_grad = True
+		if delta_y is not None:
+			with torch.no_grad():
+				noise_new = noise - curr_lr * delta_y
+			noise_new.requires_grad = True
 
 		print(f'learning rate: {curr_lr}')
 
@@ -75,7 +76,7 @@ def resynthesise(
 
 
 def reconstruct(
-	x: npt.NDArray[np.float64],
+	x: npt.NDArray[np.float32],
 	jtfs: TimeFrequencyScattering1D,
 	bold_driver_accelerator: float = 0.9,
 	bold_driver_brake: float = 0.55,
@@ -155,9 +156,14 @@ def run_resynth(
 	# assert len(audio_files) == len(start)
 	audio_files = os.listdir(audio_dir)
 	for i, audio_file in enumerate(audio_files):
+		# import x, reduce type and convert to mono
 		x, sample_rate = sf.read(os.path.join(audio_dir, audio_file))
+		x = np.float32(x)
+		if x.shape[1] != 1:
+			x = x.sum(axis=1) / x.shape[1]
 		if x.shape[-1] > max_length * sample_rate:
 			raise ValueError(f'{audio_file} exceeds maximum allowed sample length.')
+
 		print(f'Currently resynthesising: {audio_file}')
 		x_input = x[:sample_rate * input_len] if input_len else x
 		N = x_input.shape[0]
