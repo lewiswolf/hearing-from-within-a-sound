@@ -160,6 +160,8 @@ def run_resynth(
 		x, sample_rate = sf.read(os.path.join(audio_dir, audio_file))
 		if x.shape[1] != 1:
 			x = np.float32(x.sum(axis=1) / x.shape[1])
+		else:
+			x = np.float32(x)
 		if x.shape[-1] > max_length * sample_rate:
 			raise ValueError(f'{audio_file} exceeds maximum allowed sample length.')
 
