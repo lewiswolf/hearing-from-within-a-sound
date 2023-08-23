@@ -17,6 +17,10 @@ Max patch and python codebase used for exploring and demonstrating the work desc
 
 ## Python Resynthesis
 
+Demo video 🎥
+
+[![Watch the video](https://i.ytimg.com/vi/-0i4IlHmgRs/maxresdefault.jpg)](https://youtu.be/-0i4IlHmgRs)
+
 ```bash
 cd python
 ```
