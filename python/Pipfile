@@ -4,11 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fire = "*"
+fire = ">=0.5"
 kymatio = {editable = true, path = "./kymatio"}
-numpy = "*"
+numpy = ">=1.24"
 soundfile = "*"
-torch = "*"
+torch = ">=2.0"
 
 [dev-packages]
 flake8 = "*"
