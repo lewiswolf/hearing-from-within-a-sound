@@ -60,7 +60,7 @@ pipenv run test
   booktitle =	{International {{Conference}} on {{Spatial}} and {{Immersive Audio}} ({{AES}})},
   author = 	{Wolstanholme, Lewis and Vahidi, Cyrus and McPherson, Andrew},
   year = 	{2023},
-  month = 		aug,
+  month = 	aug,
   address = 	{{Huddersfield, UK}},
   copyright = 	{All rights reserved}
 }
