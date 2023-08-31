@@ -51,3 +51,18 @@ pipenv run python resynthesise.py --audio_dir </absolute/path/to/audio/files/>
 pipenv install -d
 pipenv run test
 ```
+
+## How to Cite
+
+```bibtex
+@inproceedings{wolstanholmeHearingSoundSeries2023,
+  title = 		{Hearing from within a Sound: {{A}} Series of Techniques for Deconstructing and Spatialising Timbre},
+  booktitle =	{International {{Conference}} on {{Spatial}} and {{Immersive Audio}} ({{AES}})},
+  author = 		{Wolstanholme, Lewis and Vahidi, Cyrus and McPherson, Andrew},
+  year = 		{2023},
+  month = 		aug,
+  address = 	{{Huddersfield, UK}},
+  copyright = 	{All rights reserved}
+}
+
+```
