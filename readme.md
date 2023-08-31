@@ -6,7 +6,7 @@
 ![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.7274474-blue)
 </a> -->
 
-Max patch and python codebase used for exploring and demonstrating the work described in the AES paper _Hearing from Within a Sound_.
+Max patch and python codebase used for exploring and demonstrating the work described in the AES paper _Hearing from Within a Sound: A Series of Techniques for Deconstructing and Spatialising Timbre_.
 
 ## Max Project
 
