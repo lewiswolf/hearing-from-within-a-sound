@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 fire = ">=0.5"
-kymatio = {editable = true, path = "./kymatio"}
-numpy = ">=1.24"
+kymatio = {file = "kymatio", editable = true}
+numpy = ">=1.26"
 soundfile = "*"
 torch = ">=2.0"
 
