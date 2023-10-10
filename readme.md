@@ -28,6 +28,13 @@ cd python
 -   [pipenv](https://formulae.brew.sh/formula/pipenv#default)
 - 	[PyTorch with CUDA enabled](https://pytorch.org/get-started/locally/)
 
+If you're using conda:
+
+```bash
+conda env create -f environment.yml
+conda activate aes
+```
+
 ### Install
 
 ```bash
