@@ -2,9 +2,6 @@
 
 ![Max MSP version](https://img.shields.io/badge/Max-8+-blue)
 ![python version](https://img.shields.io/badge/Python-3.11-blue)
-<!-- <a href="https://doi.org/10.5281/zenodo.7274474">
-![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.7274474-blue)
-</a> -->
 
 Max patch and python codebase used for exploring and demonstrating the work described in the AES paper _Hearing from Within a Sound: A Series of Techniques for Deconstructing and Spatialising Timbre_.
 
@@ -64,5 +61,4 @@ pipenv run test
   address = 	{{Huddersfield, UK}},
   copyright = 	{All rights reserved}
 }
-
 ```
