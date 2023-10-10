@@ -5,10 +5,6 @@
 
 Max patch and python codebase used for exploring and demonstrating the work described in the AES paper _Hearing from Within a Sound: A Series of Techniques for Deconstructing and Spatialising Timbre_.
 
-Demo video 🎥
-
-[![Watch the video](https://i.ytimg.com/vi/-0i4IlHmgRs/maxresdefault.jpg)](https://youtu.be/-0i4IlHmgRs)
-
 ## Max Project
 
 ### Dependencies
@@ -17,6 +13,10 @@ Demo video 🎥
 -	[kac_maxmsp](https://github.com/lewiswolf/kac_maxmsp)
 
 ## Python Resynthesis
+
+Demo video 🎥
+
+[![Watch the video](https://i.ytimg.com/vi/-0i4IlHmgRs/maxresdefault.jpg)](https://youtu.be/-0i4IlHmgRs)
 
 ```bash
 cd python
