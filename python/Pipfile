@@ -9,12 +9,14 @@ kymatio = {file = "kymatio", editable = true}
 numpy = ">=1.26"
 soundfile = "*"
 torch = ">=2.0"
+tqdm = ">=4.66"
 
 [dev-packages]
 flake8 = "*"
 flake8-commas = "*"
 flake8-quotes = "*"
 mypy = "*"
+types-tqdm = "*"
 
 [requires]
 python_version = "3.11"

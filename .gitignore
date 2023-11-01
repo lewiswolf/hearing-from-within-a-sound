@@ -11,4 +11,5 @@
 Pipfile.lock
 reqlib-metadata
 /python/**/build
+/python/audio
 /python/out
