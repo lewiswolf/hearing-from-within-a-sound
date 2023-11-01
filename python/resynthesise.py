@@ -26,7 +26,7 @@ def resynthesise(
 	sample_rate: int = 48000,
 ) -> None:
 	'''
-	Perform JTFS resythesis, parameterised by J bands.
+	Perform JTFS resynthesis, parameterised by J bands.
 	params:
 		target						Target audio.
 		jtfs						Initialised JTFS class.
@@ -163,7 +163,7 @@ def reconstruct(
 
 def get_unique_j1(jtfs: TimeFrequencyScattering1D, Sx: torch.Tensor) -> list[list[int]]:
 	'''
-	Retrieve the indexs of each J band.
+	Retrieve the indexes of each J band.
 	params:
 		jtfs	Initialised JTFS class.
 		Sx		Transform of the target audio.
@@ -212,7 +212,7 @@ def run_resynth(
 			x = x.sum(axis=1) / x.shape[1]
 		if x.shape[-1] > max_length * sample_rate:
 			x = x[:max_length * sample_rate]
-		# JTFS reconstuctive synthesis
+		# JTFS reconstructive synthesis
 		print(f'Currently resynthesising: {audio_file}')
 		reconstruct(
 			x.astype(np.float32),
