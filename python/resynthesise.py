@@ -87,6 +87,7 @@ def resynthesise(
 			# loop stuff
 			bar.postfix = err.cpu().detach().numpy()
 			bar.update(1)
+	torch.cuda.empty_cache()
 
 
 def reconstruct(
