@@ -202,7 +202,7 @@ def run_resynth(
 		output_dir		Where the output audio files are saved.
 	'''
 	# initialise input directory
-	if not audio_dir:
+	if not os.path.isdir(audio_dir):
 		raise ValueError('Directory of audio files must be specified: `--audio_dir </absolute/path/to/audio/files/>`')
 	audio_files = os.listdir(audio_dir)
 	# loop over audio files
