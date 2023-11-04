@@ -41,14 +41,19 @@ def resynthesise(
 	'''
 	# configure output directory
 	os.makedirs(output_dir, exist_ok=True)
-	# initialis noise
-	noise = torch.randn((target.shape[0],), requires_grad=True)
+	# create a tensor to match the shape of the total J bands
 	S_target = jtfs(target.cuda())
-	# create an array filled with the float_value with the same shape as the input array
 	if idxs is not None:
 		new_array = torch.zeros(S_target.shape).cuda()
 		new_array[:, idxs, :] = S_target[:, idxs, :]
 		S_target = new_array
+	# initialise noise and apply fades to beginning and end of noise
+	noise = torch.randn((target.shape[0],))
+	fade_length = 2048 # (samples)
+	fade = np.array([(n / (fade_length - 1)) ** 2 for n in range(fade_length)])
+	noise[:fade_length] = noise[:fade_length] * fade
+	noise[-fade_length:] = noise[-fade_length:] * np.flip(fade)
+	noise.requires_grad = True
 	# initialise iteration history
 	err_history = []
 	current_learning_rate = learning_rate
@@ -78,13 +83,12 @@ def resynthesise(
 				current_learning_rate *= bold_driver_accelerator
 			# export reconstructed audio
 			if i >= 50:
-				# apply fades to beginning and end of audio sample
-				x = noise.detach().cpu().numpy()
-				fade_length = 1024 # (samples)
-				fade = np.array([(n / (fade_length - 1)) ** 2 for n in range(fade_length)])
-				x[:fade_length] = x[:fade_length] * fade
-				x[-fade_length:] = x[-fade_length:] * np.flip(fade)
-				sf.write(os.path.join(output_dir, f'{i:03}_{instance_name}.wav'), x, sample_rate, 'PCM_32')
+				sf.write(
+					os.path.join(output_dir, f'{i:03}_{instance_name}.wav'),
+					noise.detach().cpu().numpy(),
+					sample_rate,
+					'PCM_32',
+				)
 			# loop stuff
 			bar.postfix = err.cpu().detach().numpy()
 			bar.update(1)
@@ -95,7 +99,7 @@ def reconstruct(
 	x: npt.NDArray[np.float32],
 	jtfs: TimeFrequencyScattering1D,
 	instance_name: str = '',
-	j1: list[int] = [],
+	j_bands: list[int] = [],
 	learning_rate: float = 1.,
 	n_iter: int = 150,
 	output_dir: str = '',
@@ -107,7 +111,7 @@ def reconstruct(
 		x							Target audio.
 		jtfs						Initialised JTFS class.
 		instance_name				Name of the target audio.
-		j1							J bands to be resynthesised.
+		j_bands						J bands to be resynthesised - [] is all.
 		learning_rate				Gradient descent update rate.
 		n_iter						Amount of iterations the resynthesis algorithm performs.
 		output_dir					Where the output audio files are saved.
@@ -123,10 +127,18 @@ def reconstruct(
 	target = torch.from_numpy(x).cuda()
 	torch.manual_seed(0)
 	S_target = jtfs(target.cuda())
-	order1 = torch.tensor(np.where(np.isin(jtfs.meta()['order'], [0, 1]))[0])
 	# configure J bands
-	idxs = get_unique_j1(jtfs, S_target[0].mean(dim=-1))
-	idxs = [x for i, x in enumerate(idxs) if i in j1] if j1 else idxs
+	order1 = np.where(np.isin(jtfs.meta()['order'], [0, 1]))
+	Sx_sorted = S_target[0].mean(dim=-1).argsort()
+	sort_desc = torch.flip(Sx_sorted[torch.from_numpy(~np.isin(Sx_sorted.cpu(), order1))], dims=(0, )).cpu()
+	js = jtfs.meta()['j']
+	j1_to_idx: dict[int, list[int]] = {i: [] for i in np.unique(js[:, 0]) if ~np.isnan(i)}
+	for i in sort_desc:
+		j1 = js[i][0]
+		if ~np.isnan(j1):
+			j1_to_idx[j1].append(int(i))
+	idxs = [v for v in j1_to_idx.values()]
+	idxs = [x for i, x in enumerate(idxs) if i in j_bands] if j_bands else idxs
 	# resynthesis loop
 	with tqdm(
 		total=len(idxs) + 1,
@@ -156,7 +168,7 @@ def reconstruct(
 					jtfs,
 					bold_driver_accelerator=1.1,
 					bold_driver_brake=0.55,
-					idxs=torch.cat([order1, torch.tensor(idx)]),
+					idxs=torch.cat([torch.tensor(order1[0]), torch.tensor(idx)]),
 					instance_name=instance_name,
 					learning_rate=learning_rate,
 					n_iter=n_iter,
@@ -165,28 +177,9 @@ def reconstruct(
 			bar.update(1)
 
 
-def get_unique_j1(jtfs: TimeFrequencyScattering1D, Sx: torch.Tensor) -> list[list[int]]:
-	'''
-	Retrieve the indexes of each J band.
-	params:
-		jtfs	Initialised JTFS class.
-		Sx		Transform of the target audio.
-	'''
-	order01 = np.where(np.isin(jtfs.meta()['order'], [0, 1]))
-	Sx_sorted = Sx.argsort()
-	sort_desc = torch.flip(Sx_sorted[torch.from_numpy(~np.isin(Sx_sorted.cpu(), order01))], dims=(0, )).cpu()
-	js = jtfs.meta()['j']
-	j1_to_idx: dict[int, list[int]] = {i: [] for i in np.unique(js[:, 0]) if ~np.isnan(i)}
-	for i in sort_desc:
-		j1 = js[i][0]
-		if ~np.isnan(j1):
-			j1_to_idx[j1].append(int(i))
-	return [v for v in j1_to_idx.values()]
-
-
 def run_resynth(
 	audio_dir: str = '',
-	j1: list[int] = [],
+	j_bands: list[int] = [],
 	learning_rate: float = 1.,
 	max_length: float = 15.,
 	n_iter: int = 150,
@@ -197,7 +190,7 @@ def run_resynth(
 
 	params:
 		audio_dir 		Directory containing the input audiofiles.
-		j1				J bands to be resynthesised.
+		j_bands			J bands to be resynthesised - [] is all.
 		learning_rate	Gradient descent update rate.
 		max_length		Maximum allowable length (seconds) of an input audio file. All audio files that exceed this duration
 						will be trimmed.
@@ -235,7 +228,7 @@ def run_resynth(
 				shape=(x.shape[0],),
 			).cuda(),
 			instance_name=os.path.splitext(os.path.basename(audio_file))[0],
-			j1=j1,
+			j_bands=j_bands,
 			learning_rate=learning_rate,
 			n_iter=n_iter,
 			output_dir=os.path.join(output_dir, os.path.basename(audio_dir)),
