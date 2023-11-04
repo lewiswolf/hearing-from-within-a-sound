@@ -78,12 +78,13 @@ def resynthesise(
 				current_learning_rate *= bold_driver_accelerator
 			# export reconstructed audio
 			if i >= 50:
-				sf.write(
-					os.path.join(output_dir, f'{i:03}_{instance_name}.wav'),
-					noise.detach().cpu().numpy(),
-					sample_rate,
-					'PCM_32',
-				)
+				# apply fades to beginning and end of audio sample
+				x = noise.detach().cpu().numpy()
+				fade_length = 1024 # (samples)
+				fade = np.array([(n / (fade_length - 1)) ** 2 for n in range(fade_length)])
+				x[:fade_length] = x[:fade_length] * fade
+				x[-fade_length:] = x[-fade_length:] * np.flip(fade)
+				sf.write(os.path.join(output_dir, f'{i:03}_{instance_name}.wav'), x, sample_rate, 'PCM_32')
 			# loop stuff
 			bar.postfix = err.cpu().detach().numpy()
 			bar.update(1)
@@ -136,6 +137,8 @@ def reconstruct(
 		resynthesise(
 			target,
 			jtfs,
+			bold_driver_accelerator=1.08,
+			bold_driver_brake=0.6,
 			idxs=None,
 			instance_name=instance_name,
 			learning_rate=learning_rate,
@@ -218,18 +221,18 @@ def run_resynth(
 		reconstruct(
 			x.astype(np.float32),
 			TimeFrequencyScattering1D(
-				J=13,
-				shape=(x.shape[0],),
-				Q=(12, 1),
-				Q_fr=1,
-				J_fr=5,
-				max_pad_factor=1,
-				max_pad_factor_fr=1,
+				analytic=True,
 				average_fr=False,
+				J=13,
+				J_fr=5,
+				max_pad_factor=0,
+				max_pad_factor_fr=0,
+				normalize='l1-energy',
 				oversampling=0,
 				oversampling_fr=0,
-				normalize='l1-energy',
-				analytic=True,
+				Q=(12, 1),
+				Q_fr=2,
+				shape=(x.shape[0],),
 			).cuda(),
 			instance_name=os.path.splitext(os.path.basename(audio_file))[0],
 			j1=j1,
