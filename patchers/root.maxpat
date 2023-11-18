@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1795.0, 903.0 ],
+		"rect" : [ -1829.0, -53.0, 1345.0, 903.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -4479,7 +4479,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-101",
-					"items" : [ "Sinusoids", ",", "FFT", ",", "JTFS" ],
+					"items" : [ "Sinusoids", ",", "DFT", ",", "JTFS" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
