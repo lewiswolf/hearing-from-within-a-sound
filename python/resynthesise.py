@@ -177,7 +177,7 @@ def reconstruct(
 			bar.update(1)
 
 
-def run_resynth(
+def runResynth(
 	audio_dir: str = '',
 	j_bands: list[int] = [],
 	learning_rate: float = 1.,
@@ -202,7 +202,7 @@ def run_resynth(
 		raise ValueError('Directory of audio files must be specified: `--audio_dir </absolute/path/to/audio/files/>`')
 	audio_files = os.listdir(audio_dir)
 	# loop over audio files
-	for i, audio_file in enumerate(audio_files):
+	for audio_file in audio_files:
 		# import x, convert to mono, and trim sample
 		x, sample_rate = sf.read(os.path.join(audio_dir, audio_file))
 		if x.shape[1] != 1:
@@ -237,4 +237,4 @@ def run_resynth(
 
 
 if __name__ == '__main__':
-	fire.Fire(run_resynth)
+	fire.Fire(runResynth)
