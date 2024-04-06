@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ -1197.0, 76.0, 1021.0, 580.0 ],
+		"rect" : [ 34.0, 185.0, 1300.0, 681.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -81,7 +81,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 0.0, 640.0, 480.0 ],
+						"rect" : [ 34.0, 213.0, 1300.0, 653.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -197,7 +197,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 1239.0, 478.521694984620353, 22.0, 22.0 ],
+					"patching_rect" : [ 1270.0, 478.521694984620353, 22.0, 22.0 ],
 					"text" : "t 1"
 				}
 
@@ -233,8 +233,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 1195.0, 448.521694984620353, 63.0, 22.0 ],
-					"text" : "sel iklectik"
+					"patching_rect" : [ 1195.0, 448.521694984620353, 94.0, 22.0 ],
+					"text" : "sel iklectik-2022"
 				}
 
 			}
@@ -256,7 +256,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 59.0, 180.0, 1286.0, 426.0 ],
+						"rect" : [ 34.0, 213.0, 1300.0, 653.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1214,7 +1214,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 42.0, -832.0, 1607.0, 798.0 ],
+										"rect" : [ 34.0, 213.0, 1300.0, 653.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -1869,7 +1869,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ -1197.0, 104.0, 1021.0, 552.0 ],
+						"rect" : [ 34.0, 213.0, 1300.0, 653.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2020,13 +2020,18 @@
 											"algorithm" : "vbap3d"
 										}
 ,
-										"iklectik" : 										{
+										"iklectik-2022" : 										{
 											"speakers" : [ 0.0, 0.0, 320.0, 0.0, 270.0, 0.0, 210.0, 0.0, 180.0, 0.0, 135.0, 0.0, 90.0, 0.0, 35.0, 0.0, 326.0, 25.0, 270.0, 25.0, 214.0, 25.0, 150.0, 25.0, 90.0, 25.0, 36.0, 25.0, 0.0, 70.0, 180.0, 70.0 ],
 											"algorithm" : "vbap3d"
 										}
 ,
+										"iklectik-2023" : 										{
+											"speakers" : [ 0.0, 31.0, 320.0, 0.0, 270.0, 16.0, 210.0, 0.0, 180.0, 31.0, 150.0, 0.0, 90.0, 16.0, 35.0, 0.0, 310.0, 28.0, 240.0, 28.0, 110.0, 28.0, 50.0, 28.0, 0.0, 90.0 ],
+											"algorithm" : "vbap3d"
+										}
+,
 										"turret-lab" : 										{
-											"speakers" : [ 342.0, -56.0, 54.0, -56.0, 126.0, -56.0, 198.0, -56.0, 270.0, -56.0, 18.0, -32.0, 90.0, -32.0, 162.0, -32.0, 234.0, -32.0, 306.0, -32.0, 0.0, 0.0, 36.0, 0.0, 72.0, 0.0, 108.0, 0.0, 144.0, 0.0, 180.0, 0.0, 216.0, 0.0, 252.0, 0.0, 288.0, 0.0, 324.0, 0.0, 18.0, 32.0, 90.0, 32.0, 162.0, 32.0, 234.0, 32.0, 306.0, 32.0, 342.0, 56.0, 54.0, 56.0, 126.0, 56.0, 198.0, 56.0, 270.0, 56.0, 0.0, 90.0 ],
+											"speakers" : [ 342.0, -56.0, 54.0, 56.0, 126.0, -56.0, 198.0, -56.0, 270.0, -56.0, 18.0, -32.0, 90.0, -32.0, 162.0, -32.0, 234.0, -32.0, 306.0, -32.0, 0.0, 0.0, 36.0, 0.0, 72.0, 0.0, 108.0, 0.0, 144.0, 0.0, 180.0, 0.0, 216.0, 0.0, 252.0, 0.0, 288.0, 0.0, 324.0, 0.0, 18.0, 32.0, 90.0, 32.0, 162.0, 32.0, 234.0, 32.0, 306.0, 32.0, 342.0, 56.0, 54.0, 56.0, 126.0, 56.0, 198.0, 56.0, 270.0, 56.0, 0.0, 90.0 ],
 											"algorithm" : "vbap3d"
 										}
 
@@ -2227,13 +2232,12 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-10",
-									"linecount" : 12,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 117.0, 225.0, 133.0, 89.0 ],
-									"text" : "342. -56. 54. -56. 126. -56. 198. -56. 270. -56. 18. -32. 90. -32. 162. -32. 234. -32. 306. -32. 0. 0. 36. 0. 72. 0. 108. 0. 144. 0. 180. 0. 216. 0. 252. 0. 288. 0. 324. 0. 18. 32. 90. 32. 162. 32. 234. 32. 306. 32. 342. 56. 54. 56. 126. 56. 198. 56. 270. 56. 0. 90."
+									"text" : "30. 0. 330. 0."
 								}
 
 							}
@@ -5140,25 +5144,7 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-22",
-									"linecount" : 6,
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "multichannelsignal", "" ],
-									"patching_rect" : [ 40.0, 240.0, 100.0, 0.0 ],
-									"saved_object_attributes" : 									{
-										"parameter_enable" : 0
-									}
-,
-									"text" : "spat5.pan~ @inputs 0 @outputs 31 @mc 1 @initwith \"/panning/type vbap3d\"",
-									"varname" : "pan"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-26",
+									"id" : "obj-1",
 									"linecount" : 3,
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -5169,13 +5155,20 @@
 										"parameter_enable" : 0
 									}
 ,
-									"text" : "spat5.meter~ @channels 31 @mc 1",
+									"text" : "spat5.meter~ @channels 0 @mc 1",
 									"varname" : "meter"
 								}
 
 							}
  ],
 						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-11", 0 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+, 							{
 								"patchline" : 								{
 									"destination" : [ "obj-23", 1 ],
 									"source" : [ "obj-1070", 0 ]
@@ -5256,36 +5249,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-26", 0 ],
-									"source" : [ "obj-22", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 0 ],
-									"source" : [ "obj-23", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-23", 0 ],
 									"source" : [ "obj-24", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-22", 0 ],
-									"source" : [ "obj-25", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-11", 0 ],
-									"source" : [ "obj-26", 0 ]
 								}
 
 							}
@@ -5305,7 +5270,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-26", 0 ],
+									"destination" : [ "obj-1", 0 ],
 									"source" : [ "obj-480", 0 ]
 								}
 
@@ -5944,7 +5909,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-307",
-					"items" : [ "stereo", ",", "binaural", ",", "5.1", ",", "2d-8", ",", "2d-16", ",", "3d-16", ",", "iklectik", ",", "turret-lab" ],
+					"items" : [ "stereo", ",", "binaural", ",", "5.1", ",", "2d-8", ",", "2d-16", ",", "3d-16", ",", "iklectik-2022", ",", "iklectik-2023", ",", "turret-lab" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -6339,7 +6304,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
-					"midpoints" : [ 1248.5, 504.680862231346737, 1204.5, 504.680862231346737 ],
+					"midpoints" : [ 1279.5, 504.680862231346737, 1204.5, 504.680862231346737 ],
 					"source" : [ "obj-8", 0 ]
 				}
 
@@ -6355,10 +6320,6 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "spat5.meter~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "spat5.pan~.mxo",
 				"type" : "iLaX"
 			}
 , 			{
